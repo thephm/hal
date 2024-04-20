@@ -121,7 +121,7 @@ class Person:
         return output
     
     def people():
-        peopleSlugs = []
+        people_slugs = []
         for person in self.people:
-            peopleSlugs.append(person.slug)
-        return peopleSlugs
+            people_slugs.append(person.slug)
+        return people_slugs
