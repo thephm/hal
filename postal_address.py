@@ -11,12 +11,6 @@ FIELD_WORK_COUNTRY = "work_country"
 FIELD_WORK_STATE = "work_state"
 FIELD_WORK_ZIP = "work_zip"
 
-FIELD_ADDRESS = "address"
-FIELD_CITY = "city"
-FIELD_COUNTRY = "country"
-FIELD_STATE = "state"
-FIELD_ZIP = "zip"
-
 class PostalAddress:
     def __init__(self, qualifier=QUALIFIER_HOME):
         self.qualifer = qualifier

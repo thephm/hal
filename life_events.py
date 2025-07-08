@@ -1,18 +1,14 @@
 NEW_LINE = "\n"
 
-FIELD_BIRTHDAY = "birthday"
-FIELD_DEATHDAY = "deathday"
-FIELD_ANNIVERSARY = "anniversary"
-
 class LifeEvents:
     def __init__(self):
-        self.FIELD_BIRTHDAY = ""
-        self.FIELD_DEATHDAY = ""
-        self.FIELD_ANNIVERSARY = ""
+        self.birthday = ""
+        self.deathday = ""
+        self.anniversary = ""
 
     def __str__(self):
-        output = "birthday: " + self.FIELD_BIRTHDAY + NEW_LINE
-        output += "deathday: " + self.FIELD_DEATHDAY + NEW_LINE
-        output += "anniversary: " + self.FIELD_ANNIVERSARY + NEW_LINE
+        output = "birthday: " + self.birthday + NEW_LINE
+        output += "deathday: " + self.deathday + NEW_LINE
+        output += "anniversary: " + self.anniversary + NEW_LINE
         return output
 

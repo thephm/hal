@@ -22,6 +22,8 @@ TAG_FLIST = "flist" # avoid
 
 Tags = [TAG_PERSON]
 
+Fields = ["slug", "tags", "subject_id", "identity", "last_contact", "connected_on", "birthday", "deathday", "anniversary", "interests", "favorites", "ignore", "people", "email_addresses", "conversation_id", "service_id", "title", "url", "organizations", "positions", "skills", "contact", "work_contact", "other_contact", "socials", "messages", "hometown", "address", "work_address", "home_address", "other_address", "folder_created", "linkedin_id"]
+
 # additional tags in a person file
 OtherTags = [TAG_ALIST, TAG_BLIST, TAG_CLIST, TAG_DLIST, TAG_ELIST, TAG_FLIST]
 
@@ -32,6 +34,7 @@ class Person:
         self.subject_id = None
         self.identity = identity.Identity()
         self.last_contact = None
+        self.connected_on = None
         self.birthday = ""
         self.deathday = ""
         self.anniversary = ""
@@ -43,6 +46,7 @@ class Person:
         self.conversation_id = "" # needed for Signal only
         self.service_id = ""  # unique across all services
         self.title = ""
+        self.url = ""  # URL to the person's profile, if available
         self.organizations = []
         self.positions = []
         self.skills = []
@@ -53,42 +57,38 @@ class Person:
         self.messages = []  # collection of messages by day
         self.hometown = ""
         self.address = postal_address.PostalAddress(postal_address.QUALIFIER_HOME)
-        self.work_address = postal_address.PostalAddress(postal_address.QUALIFIER_HOME)
+        self.work_address = postal_address.PostalAddress(postal_address.QUALIFIER_WORK)
         self.other_address = postal_address.PostalAddress(postal_address.QUALIFIER_OTHER)
         self.folder_created = False  # whether the folder for this person has been created
         self.linkedin_id = ""
         
     def __str__(self):
-        output = "slug: " + self.slug + NEW_LINE
+        output = "slug: " + str(self.slug) + NEW_LINE
+        output += str(self.identity     ) + NEW_LINE
         output += "tags: " + str(self.tags) + NEW_LINE
-        output += "subject_id: " + self.subject_id + NEW_LINE
-        output += "last_contact: " + self.last_contact + NEW_LINE
-        output += "mobile: " + self.mobile + NEW_LINE
-        output += str(self.name)
-        output += "gender: " + self.gender
+        output += "subject_id: " + str(self.subject_id) + NEW_LINE
+        output += "last_contact: " + str(self.last_contact) + NEW_LINE
+        output += "connected_on: " + str(self.connected_on) + NEW_LINE
         output += "ignore: " + str(self.ignore) + NEW_LINE
-        output += "pronouns: " + str(self.pronouns) + NEW_LINE
-        output += "aliases: " + str(identity.aliases)
-        output += "birthday: " + self.birthday
-        output += "deathday: " + self.deathday
-        output += "anniversary: " + self.anniversary
-        output += "interests: " + str(self.interests)
-        output += "favorites: " + str(self.favorites)
-        output += "people: " + str(self.people)
-        output += "title: " + self.title
-        output += "organizations: " + str(self.organizations)
-        output += "positions: " + str(self.positions)
-        output += "skills: " + str(self.skills)
-        output += str(self.contact)
-        output += str(self.work_contact)
-        output += str(self.other_contact)
-        output += str(self.socials)
-        output += "email_addresses: " + str(self.email_addresses)
-        output += "hometown: " + self.hometown
-        output += str(self.contact)
-        output += str(self.work_contact)
-        output += str(self.other_contact)
+        output += "birthday: " + self.birthday + NEW_LINE
+        output += "deathday: " + self.deathday + NEW_LINE
+        output += "anniversary: " + self.anniversary + NEW_LINE
+        output += "interests: " + str(self.interests) + NEW_LINE
+        output += "favorites: " + str(self.favorites) + NEW_LINE
+        output += "people: " + str(self.people) + NEW_LINE
+        output += "title: " + self.title + NEW_LINE
+        output += "organizations: " + str(self.organizations) + NEW_LINE
+        output += "skills: " + str(self.skills) + NEW_LINE
+        output += "email_addresses: " + str(self.email_addresses) + NEW_LINE
+        output += str(self.contact) + NEW_LINE
+        output += str(self.work_contact) + NEW_LINE
+        output += str(self.other_contact) + NEW_LINE
+        output += str(self.socials) + NEW_LINE
+        output += "hometown: " + self.hometown + NEW_LINE
         output += "service_id: " + self.service_id + NEW_LINE
+        output += "positions: " + NEW_LINE
+        for position in self.positions:
+            output += str(position) + NEW_LINE
         return output
     
     def get_people_slugs(self):
