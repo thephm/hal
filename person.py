@@ -22,7 +22,9 @@ TAG_FLIST = "flist" # avoid
 
 Tags = [TAG_PERSON]
 
-Fields = ["slug", "tags", "subject_id", "identity", "last_contact", "connected_on", "birthday", "deathday", "anniversary", "interests", "favorites", "ignore", "people", "email_addresses", "conversation_id", "service_id", "title", "url", "organizations", "positions", "skills", "contact", "work_contact", "other_contact", "socials", "messages", "hometown", "address", "work_address", "home_address", "other_address", "folder_created", "linkedin_id"]
+Fields = ["slug", "tags", "subject_id", "slug", "last_contact", "connected_on", "birthday", "deathday", "anniversary", "interests", "favorites", "ignore", "people", "email_addresses", "conversation_id", "service_id", "title", "url", "organizations", "positions", "skills", "messages", "hometown", "folder_created"]
+
+#Fields = ["slug", "tags", "subject_id", "slug", "last_contact", "connected_on", "birthday", "deathday", "anniversary", "interests", "favorites", "ignore", "people", "email_addresses", "conversation_id", "service_id", "title", "url", "organizations", "positions", "skills", "messages", "hometown", "city", "province", "country", "address", "work_address", "home_address", "other_address", "folder_created"]
 
 # additional tags in a person file
 OtherTags = [TAG_ALIST, TAG_BLIST, TAG_CLIST, TAG_DLIST, TAG_ELIST, TAG_FLIST]
@@ -60,7 +62,6 @@ class Person:
         self.work_address = postal_address.PostalAddress(postal_address.QUALIFIER_WORK)
         self.other_address = postal_address.PostalAddress(postal_address.QUALIFIER_OTHER)
         self.folder_created = False  # whether the folder for this person has been created
-        self.linkedin_id = ""
         
     def __str__(self):
         output = "slug: " + str(self.slug) + NEW_LINE

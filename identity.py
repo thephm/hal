@@ -18,11 +18,11 @@ class Identity:
         
     def __str__(self):
         output = "name: " + str(self.name) + NEW_LINE
-        output += "first: " + str(self.first_name) + NEW_LINE
-        output += "middle: " + str(self.middle_name) + NEW_LINE
-        output += "last: " + str(self.last_name) + NEW_LINE
-        output += "full: " + str(self.full_name) + NEW_LINE
-        output += "nick: " + str(self.nick_name) + NEW_LINE
+        output += "first_name: " + str(self.first_name) + NEW_LINE
+        output += "middle_name: " + str(self.middle_name) + NEW_LINE
+        output += "last_name: " + str(self.last_name) + NEW_LINE
+        output += "full_name: " + str(self.full_name) + NEW_LINE
+        output += "nick_name: " + str(self.nick_name) + NEW_LINE
         output += "nee: " + str(self.nee) + NEW_LINE
         output += "gender: " + str(self.gender) + NEW_LINE
         output += "pronouns: " + str(self.pronouns) + NEW_LINE
