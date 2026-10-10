@@ -63,6 +63,22 @@ class Person:
         self.other_address = postal_address.PostalAddress(postal_address.QUALIFIER_OTHER)
         self.folder_created = False  # whether the folder for this person has been created
         
+    @property
+    def first_name(self):
+        return self.identity.first_name
+
+    @first_name.setter
+    def first_name(self, value):
+        self.identity.first_name = value
+
+    @property
+    def last_name(self):
+        return self.identity.last_name
+
+    @last_name.setter
+    def last_name(self, value):
+        self.identity.last_name = value
+
     def __str__(self):
         output = "slug: " + str(self.slug) + NEW_LINE
         output += str(self.identity     ) + NEW_LINE
