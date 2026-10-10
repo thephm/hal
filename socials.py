@@ -10,6 +10,7 @@ class Socials:
         self.github_id = ""
         self.medium_id = ""
         self.threads_id = ""
+        self.signal_aci = ""
 
     def __str__(self):
         output = "linkedin_id: " + self.linkedin_id + NEW_LINE
@@ -19,5 +20,6 @@ class Socials:
         output += "x_id: " + self.x_id + NEW_LINE
         output += "github_id: " + self.github_id + NEW_LINE
         output += "medium_id: " + self.medium_id + NEW_LINE
-        output += "threads_id: " + self.threads_id
+        output += "threads_id: " + self.threads_id + NEW_LINE
+        output += "signal_aci: " + self.signal_aci
         return output
