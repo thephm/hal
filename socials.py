@@ -15,7 +15,7 @@ class Socials:
         output = "linkedin_id: " + self.linkedin_id + NEW_LINE
         output += "facebook_id: " + self.facebook_id + NEW_LINE
         output += "instagram_id: " + self.instagram_id + NEW_LINE
-        output += "bluesky_id: " + self.instagram_id + NEW_LINE
+        output += "bluesky_id: " + self.bluesky_id + NEW_LINE
         output += "x_id: " + self.x_id + NEW_LINE
         output += "github_id: " + self.github_id + NEW_LINE
         output += "medium_id: " + self.medium_id + NEW_LINE
