@@ -43,6 +43,7 @@ class Person:
         self.interests = []
         self.favorites = []
         self.ignore = False # whether to ignore this person in processing
+        self.aliases = [] # optional nicknames used for name matching
         self.people = []
         self.email_addresses = [] # collection of email addresses
         self.conversation_id = "" # needed for Signal only
